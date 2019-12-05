@@ -26,6 +26,7 @@ task debug(dependsOn: classes, type: JavaExec) {
 
 task dist(type: Jar) {
     manifest {
+        attributes 'Autor': "Abraham Medina Carrillo <abraham.medina.carrillo@aubc.edu.mx>"
         attributes 'Main-Class': project.mainClassName
     }
     from {

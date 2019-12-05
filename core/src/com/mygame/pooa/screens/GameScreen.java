@@ -1,69 +1,64 @@
 package com.mygame.pooa.screens;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 import com.mygame.pooa.MyGamePOOA;
 
-public abstract class GameScreen implements Screen {
-    public static final float PPM = 32f;
+/**
+ * @author Abraham Medina Carrillo
+ * @author Jesus Emmanuel Rodriguez Estrada
+ * @author Alejandro Gonzalez Zepeda
+ */
 
+public abstract class GameScreen implements Screen {
     public MyGamePOOA game;
+
+    /**
+     * @param game Manegador de pantallas
+     */
 
     public GameScreen(MyGamePOOA game){
         this.game = game;
     }
 
     /**
-     * Called when this screen becomes the current screen for a {@link Game}.
+     * Cada que se muestra la pantalla como principal se llama ha esta funcion
      */
     @Override
     public void show() {
 
     }
 
-    /**
-     * Called when the screen should render itself.
-     *
-     * @param delta The time in seconds since the last render.
-     */
     @Override
     public void render(float delta) {
 
     }
 
     /**
-     * @param width
-     * @param height
+     * @param width Nuevo ancho del escenario al redimencionarse
+     * @param height Nuevo alto del escenario al redimencionarse
      */
     @Override
     public void resize(int width, int height) {
 
     }
 
-    /**
-     */
     @Override
     public void pause() {
 
     }
 
-    /**
-     */
     @Override
     public void resume() {
 
     }
 
-    /**
-     * Called when this screen is no longer the current screen for a {@link Game}.
-     */
     @Override
     public void hide() {
 
     }
 
     /**
-     * Called when this screen should release all resources.
+     * Se llama antes de destruir la pantalla
      */
     @Override
     public void dispose() {

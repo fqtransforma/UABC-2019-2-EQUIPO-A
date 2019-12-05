@@ -5,16 +5,19 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.utils.Disposable;
 
-import java.io.Serializable;
+/**
+ * Contiene la configuracion necesaria que tendra cada uno de nuestros objetos que seran afectados por las fisicas de nuestro mundo
+ * @author Abraham Medina Carrillo
+ * @author Jesus Emmanuel Rodriguez Estrada
+ * @author Alejandro Gonzalez Zepeda
+ * @see Actor
+ * @see Body
+ */
 
-public abstract class Entity extends Actor implements Serializable, Disposable {
-    protected World world;
+public abstract class Entity extends Actor {
     protected Body body;
     public Entity(World world, float x, float y, BodyDef.BodyType bodyType) {
-        this.world = world;
-
         BodyDef bodyDef = new BodyDef();
         bodyDef.position.set(x, y);
         bodyDef.type = bodyType;
@@ -29,8 +32,11 @@ public abstract class Entity extends Actor implements Serializable, Disposable {
         return body;
     }
 
-    @Override
-    public void dispose() {
+    /**
+     * @param world Mundo contenedor, se destruira la entidad de este
+     */
+
+    public void dispose(World world) {
         world.destroyBody(body);
     }
 }

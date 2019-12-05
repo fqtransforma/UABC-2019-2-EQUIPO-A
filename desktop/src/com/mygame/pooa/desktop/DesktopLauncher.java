@@ -6,6 +6,10 @@ import com.mygame.pooa.MyGamePOOA;
 
 import java.awt.*;
 
+/**
+ * Clase principal
+ */
+
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
