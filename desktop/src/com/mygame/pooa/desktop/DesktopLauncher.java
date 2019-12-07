@@ -21,7 +21,7 @@ import java.awt.*;
  *  @author Alejandro Gonzalez Zepeda
  *  CORREO ELECTRONICO {alejandro.gonzalez96, abraham.medina.carrillo, emmanuel.rodriguez40 }"uabc.edu.mx
  *  UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
- *  htt://uabc.mx
+ *  http://uabc.mx
  *
  * Clase principal
  */
