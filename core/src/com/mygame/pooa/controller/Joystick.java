@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.mygame.pooa.actors.Entity;
 
 /**
+ * SEPARADOR 3000 1.0
  * @author Abraham Medina Carrillo
  * @author Jesus Emmanuel Rodriguez Estrada
  * @author Alejandro Gonzalez Zepeda
