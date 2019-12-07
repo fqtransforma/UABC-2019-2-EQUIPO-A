@@ -1,12 +1,3 @@
-/**
- *  SEPARADOR 3000 1.0
- *  APLICACION PARA ESCRITORIO DE ENTRETENIMIENTO Y CONCIENTIZACION SOBRE EL RECICLAJE
- *  AUTORES: Gonzalez Zepeda Alejandro, Medina Carrillo Abraham, Rodriguez Estrada Jesus Emmanuel
- *  CORREO ELECTRONICO {alejandro.gonzalez96, abraham.medina.carrillo, emmanuel.rodriguez40 }@uabc.edu.mx
- *  UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
- *  http://uabc.mx
- */
-
 package com.mygame.pooa.screens;
 
 import com.badlogic.gdx.Screen;
@@ -14,6 +5,9 @@ import com.mygame.pooa.MyGamePOOA;
 
 /**
  * Clase abstracta para el manejo de la pantalla en las diferentes clases.
+ *  @author Abraham Medina Carrillo
+ *  @author Jesus Emmanuel Rodriguez Estrada
+ *  @author Alejandro Gonzalez Zepeda
  */
 
 public abstract class GameScreen implements Screen {

@@ -18,6 +18,9 @@ import com.mygame.pooa.screens.PlayScreen;
 /**
  * Manejador de pantallas, se controla el estado de las mismas, cual se mira y renderiza, cual se destruye
  * ademas de contener el manejador de recursos y {@link com.badlogic.gdx.graphics.g2d.Batch} para dibujar
+ * @author Abraham Medina Carrillo
+ * @author Jesus Emmanuel Rodriguez Estrada
+ * @author Alejandro Gonzalez Zepeda
  */
 
 public class MyGamePOOA extends Game {

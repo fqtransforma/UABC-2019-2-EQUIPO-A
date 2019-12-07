@@ -1,12 +1,3 @@
-/**
- *  SEPARADOR 3000 1.0
- *  APLICACION PARA ESCRITORIO DE ENTRETENIMIENTO Y CONCIENTIZACION SOBRE EL RECICLAJE
- *  AUTORES: Gonzalez Zepeda Alejandro, Medina Carrillo Abraham, Rodriguez Estrada Jesus Emmanuel
- *  CORREO ELECTRONICO {alejandro.gonzalez96, abraham.medina.carrillo, emmanuel.rodriguez40 }@uabc.edu.mx
- *  UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
- *  http://uabc.mx
- */
-
 package com.mygame.pooa.screens;
 
 import com.badlogic.gdx.Gdx;
@@ -19,6 +10,9 @@ import com.mygame.pooa.MyGamePOOA;
 
 /**
  * Pantalla de inicio
+ * @author Abraham Medina Carrillo
+ * @author Jesus Emmanuel Rodriguez Estrada
+ * @author Alejandro Gonzalez Zepeda
  */
 
 public class Home extends GameScreen {

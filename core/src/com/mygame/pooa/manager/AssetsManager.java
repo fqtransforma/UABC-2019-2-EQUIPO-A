@@ -19,6 +19,9 @@ import java.util.Random;
 
 /**
  * Contiene los recursos necesarios para utilizar durante el juego
+ *  @author Abraham Medina Carrillo
+ *  @author Jesus Emmanuel Rodriguez Estrada
+ *  @author Alejandro Gonzalez Zepeda
  */
 
 public class AssetsManager extends AssetManager {

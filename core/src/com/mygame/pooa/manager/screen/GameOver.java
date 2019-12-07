@@ -12,6 +12,7 @@ import com.mygame.pooa.actors.Player;
  * @author Abraham Medina Carrillo
  * @author Jesus Emmanuel Rodriguez Estrada
  * @author Alejandro Gonzalez Zepeda
+ *
  */
 
 public class GameOver {

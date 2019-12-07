@@ -20,6 +20,9 @@ import com.mygame.pooa.screens.PlayScreen;
 
 /**
  * Contiene todos los elementos de UI que se veran en la pantalla de juego, como las vidas, los puntos, la opcion para abrir el menu de pause
+ *  @author Abraham Medina Carrillo
+ *  @author Jesus Emmanuel Rodriguez Estrada
+ *  @author Alejandro Gonzalez Zepeda
  */
 
 public class Hub {

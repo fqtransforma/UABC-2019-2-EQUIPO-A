@@ -25,11 +25,13 @@ import com.mygame.pooa.utils.CreateJoin;
 import com.mygame.pooa.utils.CreateShape;
 
 /**
+ * Jugador principal, incluye fisicas personalizadas y variables necesarias para su colision con las diferentes entidades
+ * @author Abraham Medina Carrillo
+ * @author Jesus Emmanuel Rodriguez Estrada
+ * @author Alejandro Gonzalez Zepeda
  * @see Joystick
  * @see Box2D
  * @see Entity
- *
- * Jugador principal, incluye fisicas personalizadas y variables necesarias para su colision con las diferentes entidades
  */
 
 public class Player extends Entity {

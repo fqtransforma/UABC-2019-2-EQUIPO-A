@@ -15,6 +15,9 @@ import com.mygame.pooa.actors.Entity;
 
 /**
  * Manejador del personaje principal
+ * @author Abraham Medina Carrillo
+ * @author Jesus Emmanuel Rodriguez Estrada
+ * @author Alejandro Gonzalez Zepeda
  */
 
 public class Joystick {
