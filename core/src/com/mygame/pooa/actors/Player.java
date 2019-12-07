@@ -1,3 +1,13 @@
+/**
+ *  SEPARADOR 3000 1.0
+ *  @author Abraham Medina Carrillo
+ *  @author Jesus Emmanuel Rodriguez Estrada
+ *  @author Alejandro Gonzalez Zepeda
+ *  CORREO ELECTRONICO {alejandro.gonzalez96, abraham.medina.carrillo, emmanuel.rodriguez40 }"uabc.edu.mx
+ *  UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
+ *  http://uabc.mx
+ *
+ */
 package com.mygame.pooa.actors;
 
 import com.badlogic.gdx.Gdx;
@@ -17,14 +27,6 @@ import com.mygame.pooa.utils.CreateJoin;
 import com.mygame.pooa.utils.CreateShape;
 
 /**
- * SEPARADOR 3000 1.0
- * APLICACION PARA ESCRITORIO
- * @author Abraham Medina Carrillo
- * @author Jesus Emmanuel Rodriguez Estrada
- * @author Alejandro Gonzalez Zepeda
- * CORREO ELECTRONICO {alejandro.gonzalez96, abraham.medina.carrillo, emmanuel.rodriguez40 }"uabc.edu.mx
- * UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
- * http://uabc.mx
  * @see Joystick
  * @see Box2D
  * @see Entity
