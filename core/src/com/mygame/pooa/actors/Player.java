@@ -17,7 +17,7 @@ import com.mygame.pooa.utils.CreateJoin;
 import com.mygame.pooa.utils.CreateShape;
 
 /**
- *
+ * SEPARADOR 3000 1.0
  * APLICACION PARA ESCRITORIO
  * @author Abraham Medina Carrillo
  * @author Jesus Emmanuel Rodriguez Estrada
