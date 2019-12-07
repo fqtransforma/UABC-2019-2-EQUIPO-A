@@ -28,6 +28,8 @@ public class Home extends GameScreen {
         super(game);
     }
 
+    /** Opcion de jugar y cerrar que aparecen a la hora que el juego se coloca en modo pausa*/
+
     @Override
     public void show() {
         PlayScreen.resetTimeSleep();
