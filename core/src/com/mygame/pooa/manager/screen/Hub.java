@@ -1,3 +1,12 @@
+/**
+ * SEPARADOR 3000 1.0
+ * @author Abraham Medina Carrillo
+ * @author Jesus Emmanuel Rodriguez Estrada
+ * @author Alejandro Gonzalez Zepeda
+ * CORREO ELECTRONICO {alejandro.gonzalez96, abraham.medina.carrillo, emmanuel.rodriguez40 }@uabc.edu.mx
+ * UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
+ * http://uabc.mx
+ */
 package com.mygame.pooa.manager.screen;
 
 import com.badlogic.gdx.Gdx;
@@ -11,14 +20,6 @@ import com.mygame.pooa.actors.Player;
 import com.mygame.pooa.screens.PlayScreen;
 
 /**
- * SEPARADOR 3000 1.0
- * @author Abraham Medina Carrillo
- * @author Jesus Emmanuel Rodriguez Estrada
- * @author Alejandro Gonzalez Zepeda
- * CORREO ELECTRONICO {alejandro.gonzalez96, abraham.medina.carrillo, emmanuel.rodriguez40 }"uabc.edu.mx
- * UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
- * http://uabc.mx
- *
  * Contiene todos los elementos de UI que se veran en la pantalla de juego, como las vidas, los puntos, la opcion para abrir el menu de pause
  */
 
