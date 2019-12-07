@@ -8,6 +8,7 @@ import com.mygame.pooa.MyGamePOOA;
 import com.mygame.pooa.actors.Player;
 
 /**
+ * Clase en la que se maneja la situación en la termina el juego.
  * @author Abraham Medina Carrillo
  * @author Jesus Emmanuel Rodriguez Estrada
  * @author Alejandro Gonzalez Zepeda
