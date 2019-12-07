@@ -24,7 +24,7 @@ import com.mygame.pooa.utils.CreateShape;
  * @author Alejandro Gonzalez Zepeda
  * CORREO ELECTRONICO {alejandro.gonzalez96, abraham.medina.carrillo, emmanuel.rodriguez40 }"uabc.edu.mx
  * UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
- * htt://uabc.mx
+ * http://uabc.mx
  * @see Joystick
  * @see Box2D
  * @see Entity
