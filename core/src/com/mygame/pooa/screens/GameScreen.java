@@ -4,6 +4,7 @@ import com.badlogic.gdx.Screen;
 import com.mygame.pooa.MyGamePOOA;
 
 /**
+ * Clase abstracta para el manejo de la pantalla en las diferentes clases.
  * @author Abraham Medina Carrillo
  * @author Jesus Emmanuel Rodriguez Estrada
  * @author Alejandro Gonzalez Zepeda
