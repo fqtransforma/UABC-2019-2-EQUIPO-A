@@ -1,3 +1,12 @@
+/**
+ * SEPARADOR 3000 1.0
+ * @author Abraham Medina Carrillo
+ * @author Jesus Emmanuel Rodriguez Estrada
+ * @author Alejandro Gonzalez Zepeda
+ * CORREO ELECTRONICO {alejandro.gonzalez96, abraham.medina.carrillo, emmanuel.rodriguez40 }@uabc.edu.mx
+ * UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
+ * http://uabc.mx
+ */
 package com.mygame.pooa.manager.screen;
 
 import com.badlogic.gdx.Gdx;
@@ -9,16 +18,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.mygame.pooa.MyGamePOOA;
 import com.mygame.pooa.screens.PlayScreen;
-
-/**
- * SEPARADOR 3000 1.0
- * @author Abraham Medina Carrillo
- * @author Jesus Emmanuel Rodriguez Estrada
- * @author Alejandro Gonzalez Zepeda
- * CORREO ELECTRONICO {alejandro.gonzalez96, abraham.medina.carrillo, emmanuel.rodriguez40 }"uabc.edu.mx
- * UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
- * http://uabc.mx
- */
 
 public class GameMenu {
     private MyGamePOOA game;
