@@ -7,6 +7,15 @@
  * http://www.uabc.mx
  */
 
+/**
+ *  SEPARADOR 3000 1.0
+ *  @author Abraham Medina Carrillo
+ *  @author Jesus Emmanuel Rodriguez Estrada
+ *  @author Alejandro Gonzalez Zepeda
+ *  CORREO ELECTRONICO {alejandro.gonzalez96, abraham.medina.carrillo, emmanuel.rodriguez40 }"uabc.edu.mx
+ *  UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
+ *  http://uabc.mx
+ */
 package com.mygame.pooa.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
@@ -16,14 +25,6 @@ import com.mygame.pooa.MyGamePOOA;
 import java.awt.*;
 
 /**
- *  SEPARADOR 3000 1.0
- *  @author Abraham Medina Carrillo
- *  @author Jesus Emmanuel Rodriguez Estrada
- *  @author Alejandro Gonzalez Zepeda
- *  CORREO ELECTRONICO {alejandro.gonzalez96, abraham.medina.carrillo, emmanuel.rodriguez40 }"uabc.edu.mx
- *  UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
- *  http://uabc.mx
- *
  * Clase principal
  */
 
