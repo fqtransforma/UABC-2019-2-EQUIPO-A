@@ -16,6 +16,7 @@ import com.mygame.pooa.MyGamePOOA;
 import java.awt.*;
 
 /**
+ *  SEPARADOR 3000 1.0
  *  @author Abraham Medina Carrillo
  *  @author Jesus Emmanuel Rodriguez Estrada
  *  @author Alejandro Gonzalez Zepeda
