@@ -56,7 +56,7 @@ public class GameMenu {
         });
     }
     /**
-     * Se encarga de actualizar el contenido en el escenario actual, creando una ventana para una mejor
+     * Se encarga de actualizar el contenido en el escenario actual, creando una ventana para una mejor visualizacion
      */
     public void render() {
         Gdx.input.setInputProcessor(stage);
