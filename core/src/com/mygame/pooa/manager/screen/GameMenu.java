@@ -23,7 +23,9 @@ public class GameMenu {
     private Window window;
     private TextButton continuar;
     private TextButton salir;
-
+/**
+ * Menu principal del juego
+ */
     public GameMenu(Skin skin, MyGamePOOA game) {
         this.game = game;
         stage = new Stage();
