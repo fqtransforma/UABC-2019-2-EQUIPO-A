@@ -59,11 +59,11 @@ public class GameMenu {
      * Se encarga de actualizar el contenido en el escenario actual, creando una ventana para una mejor visualizacion
      */
     public void render() {
-        Gdx.input.setInputProcessor(stage);
-        if(window.getScaleX() < 1) window.setScale(window.getScaleX() + 0.1f);
+        Gdx.input.setInputProcessor(stage); /** Eventos que suceden en escenarios */
+        if(window.getScaleX() < 1) window.setScale(window.getScaleX() + 0.1f); /** Efecto POPUP en la ventana */
 
-        stage.act();
-        stage.draw();
+        stage.act(); /** Actualiza el escenario sin dubujar */
+        stage.draw(); /** Dibuja los cambios */
 
         if(salir.isPressed()) game.setScreen(game.home);
     }
