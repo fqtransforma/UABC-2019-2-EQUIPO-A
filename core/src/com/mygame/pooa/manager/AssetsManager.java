@@ -1,3 +1,13 @@
+/**
+ * SEPARADOR 3000 1.0
+ * @author Abraham Medina Carrillo
+ * @author Jesus Emmanuel Rodriguez Estrada
+ * @author Alejandro Gonzalez Zepeda
+ * CORREO ELECTRONICO {alejandro.gonzalez96, abraham.medina.carrillo, emmanuel.rodriguez40 }@uabc.edu.mx
+ * UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
+ * http://uabc.mx
+ */
+
 package com.mygame.pooa.manager;
 
 import com.badlogic.gdx.Gdx;
@@ -10,10 +20,6 @@ import java.util.Random;
 
 /**
  * Contiene los recursos necesarios para utilizar durante el juego
- * @author Abraham Medina Carrillo
- * @author Jesus Emmanuel Rodriguez Estrada
- * @author Alejandro Gonzalez Zepeda
- * @see AssetsManager
  */
 
 public class AssetsManager extends AssetManager {
