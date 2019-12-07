@@ -34,6 +34,8 @@ public class GameMenu {
         window.setSize(Gdx.graphics.getWidth() / 3f, Gdx.graphics.getHeight() * 3f / 4f);
         window.setPosition(Gdx.graphics.getWidth() / 2f - window.getWidth() / 2f, Gdx.graphics.getHeight() / 2f - window.getHeight() / 2f);
 
+        //SECCION DE LA OPCIONES
+
         continuar = new TextButton("CONTINUAR", skin);
         continuar.setSize(window.getWidth() * 3f / 4f, 70);
         continuar.setPosition(window.getWidth() / 8, window.getHeight() - continuar.getHeight() * 2);
