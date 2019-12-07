@@ -16,6 +16,13 @@ import com.mygame.pooa.MyGamePOOA;
 import java.awt.*;
 
 /**
+ *  @author Abraham Medina Carrillo
+ *  @author Jesus Emmanuel Rodriguez Estrada
+ *  @author Alejandro Gonzalez Zepeda
+ *  CORREO ELECTRONICO {alejandro.gonzalez96, abraham.medina.carrillo, emmanuel.rodriguez40 }"uabc.edu.mx
+ *  UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
+ *  htt://uabc.mx
+ *
  * Clase principal
  */
 
