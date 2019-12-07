@@ -1,3 +1,14 @@
+/**
+ *  SEPARADOR 3000 1.0
+ *  APLICACION PARA ESCRITORIO DE ENTRETENIMIENTO Y CONCIENTIZACION SOBRE EL RECICLAJE
+ *  @author Abraham Medina Carrillo
+ *  @author Jesus Emmanuel Rodriguez Estrada
+ *  @author Alejandro Gonzalez Zepeda
+ *  CORREO ELECTRONICO {alejandro.gonzalez96, abraham.medina.carrillo, emmanuel.rodriguez40 }@uabc.edu.mx
+ *  UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
+ *  http://uabc.mx
+ */
+
 package com.mygame.pooa.controller;
 
 import com.badlogic.gdx.Gdx;
@@ -5,15 +16,6 @@ import com.badlogic.gdx.Input;
 import com.mygame.pooa.actors.Entity;
 
 /**
- * SEPARADOR 3000 1.0
- * @author Abraham Medina Carrillo
- * @author Jesus Emmanuel Rodriguez Estrada
- * @author Alejandro Gonzalez Zepeda
- * CORREO ELECTRONICO {alejandro.gonzalez96, abraham.medina.carrillo, emmanuel.rodriguez40 }@uabc.edu.mx
- * UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
- * http://uabc.mx
- * @see Entity
- *
  * Manejador del personaje principal
  */
 

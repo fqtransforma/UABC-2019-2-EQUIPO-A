@@ -9,6 +9,7 @@
 
 /**
  *  SEPARADOR 3000 1.0
+ *  APLICACION PARA ESCRITORIO DE ENTRETENIMIENTO Y CONCIENTIZACION SOBRE EL RECICLAJE
  *  @author Abraham Medina Carrillo
  *  @author Jesus Emmanuel Rodriguez Estrada
  *  @author Alejandro Gonzalez Zepeda
