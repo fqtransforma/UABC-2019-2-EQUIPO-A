@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.mygame.pooa.MyGamePOOA;
 import com.mygame.pooa.actors.Player;
+import com.mygame.pooa.manager.FileManager;
 
 /**
  * Clase en la que se maneja la situación en la termina el juego.
@@ -20,10 +21,15 @@ public class GameOver {
 
     private Stage stage;
     private Window window;
+    private Skin skin;
     private Label label;
     private Label puntos;
     private TextField textField;
     private TextButton button;
+
+    private boolean isRender = false;
+
+    private FileManager.Scores scores;
 
     /**
      * @param skin Estilo grafico a utilizar
@@ -34,8 +40,13 @@ public class GameOver {
 
     public GameOver(Skin skin, MyGamePOOA game) {
         this.game = game;
+        this.skin = skin;
         stage = new Stage();
 
+        this.init();
+    }
+
+    public void init() {
         window = new Window("", skin);
         window.setSize(Gdx.graphics.getWidth() / 3f, Gdx.graphics.getHeight() * 3f / 4f);
         window.setPosition(Gdx.graphics.getWidth() / 2f - window.getWidth() / 2f, Gdx.graphics.getHeight() / 2f - window.getHeight() / 2f);
@@ -64,6 +75,16 @@ public class GameOver {
 
         window.setLayoutEnabled(false);
         window.add(textField, label, button, puntos);
+
+        scores = FileManager.readFile("scores.txt");
+        scores.add(Player.Points);
+        FileManager.saveFile(scores, "scores.txt");
+        Label temp = new Label("MAXSCORE: " + scores.maxSize() + "", skin);
+        temp.setColor(Color.BLACK);
+        temp.setSize(label.getWidth(), 70);
+        temp.setPosition(window.getWidth() / 2f - temp.getWidth() / 2f, 60);
+        window.add(temp);
+
         stage.addActor(window);
     }
 
@@ -74,12 +95,20 @@ public class GameOver {
      */
 
     public void render() {
+        if(!isRender) {
+            this.init();
+            isRender = true;
+        }
+
         Gdx.input.setInputProcessor(stage);
         puntos.setText("" + Player.Points);
         puntos.setPosition(window.getWidth() / 2f - puntos.getWidth(), window.getY() + puntos.getHeight() * 2.5f);
 
         if(window.getScaleX() < 1) window.setScale(window.getScaleX() + 0.1f);
-        if(button.isPressed() && !button.isDisabled()) game.setScreen(game.home);
+        if(button.isPressed() && !button.isDisabled()) {
+            game.setScreen(game.home);
+            isRender = false;
+        }
 
         stage.act();
         stage.draw();

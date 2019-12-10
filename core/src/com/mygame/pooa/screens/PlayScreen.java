@@ -86,7 +86,7 @@ public class PlayScreen extends GameScreen {
 
         stage = new Stage(new ScreenViewport());
         hub = new Hub(stage);
-        Hub.objectDestroy = 10;
+        Hub.objectDestroy = 1;
         gameOver = new GameOver(hub.getSkin(), game);
         gameMenu = new GameMenu(hub.getSkin(), game);
 
