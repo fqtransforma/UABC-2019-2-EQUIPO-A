@@ -11,9 +11,9 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Joint;
 import com.badlogic.gdx.physics.box2d.JointDef;
 import com.badlogic.gdx.physics.box2d.World;
-import com.mygame.pooa.actors.Player;
+import com.mygame.pooa.actors.Player.Player;
 import com.mygame.pooa.actors.reciclar.Bote;
-import com.mygame.pooa.manager.screen.Hub;
+import com.mygame.pooa.screens.other.Hub;
 import com.mygame.pooa.utils.CreateJoin;
 
 import java.util.Vector;

@@ -20,13 +20,13 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygame.pooa.MyGamePOOA;
 import com.mygame.pooa.actors.Banda;
-import com.mygame.pooa.actors.Player;
+import com.mygame.pooa.actors.Player.Player;
 import com.mygame.pooa.actors.reciclar.categoria.Objetos;
 import com.mygame.pooa.actors.reciclar.Bote;
 import com.mygame.pooa.manager.AssetsManager;
-import com.mygame.pooa.manager.screen.GameMenu;
-import com.mygame.pooa.manager.screen.GameOver;
-import com.mygame.pooa.manager.screen.Hub;
+import com.mygame.pooa.screens.other.GameMenu;
+import com.mygame.pooa.screens.other.GameOver;
+import com.mygame.pooa.screens.other.Hub;
 
 /**
  * Contiene los objetos relacionados a la pantalla del juego, incluye el estado y ciclo de vida del mismo
@@ -82,23 +82,23 @@ public class PlayScreen extends GameScreen {
 
         world = new World(new Vector2(GravedadX * PPM / 5, -9.8f * PPM / 5), false);
         b2dr = new Box2DDebugRenderer();
-        b2dr.setDrawBodies(false);
+//        b2dr.setDrawBodies(false);
 
         stage = new Stage(new ScreenViewport());
         hub = new Hub(stage);
-        Hub.objectDestroy = 1;
+        Hub.objectDestroy = 10;
         gameOver = new GameOver(hub.getSkin(), game);
         gameMenu = new GameMenu(hub.getSkin(), game);
 
         player = new Player(world, new Vector2(Gdx.graphics.getWidth() / PPM, Gdx.graphics.getHeight() / PPM), new Vector2(4f, 4f));
-        banda = new Banda(world, new Vector2(-20, 1), new Vector2(150, 50));
+        banda = new Banda(world, new Vector2(-20, 1), new Vector2(Gdx.graphics.getWidth() / PPM * 3, Gdx.graphics.getHeight()));
         objetos = new Objetos(world);
 
         botes = new Bote[3];
         final float positionBotes = Gdx.graphics.getWidth() / 10f;
-        botes[0] = new Bote(new Vector2(positionBotes, 15 * PPM), new Vector2(positionBotes * 2, 5 * PPM), Bote.Type.PAPEL, stage, hub.getSkin());
-        botes[1] = new Bote(new Vector2(positionBotes * 4, 15 * PPM), new Vector2(positionBotes * 2, 5 * PPM), Bote.Type.METAL, stage, hub.getSkin());
-        botes[2] = new Bote(new Vector2(positionBotes * 7, 15 * PPM), new Vector2(positionBotes * 2, 5 * PPM), Bote.Type.ORGANICO, stage, hub.getSkin());
+        botes[0] = new Bote(new Vector2(positionBotes, Gdx.graphics.getHeight() / 10f * 6.5f), new Vector2(positionBotes * 2, 5 * PPM), Bote.Type.PAPEL, stage, hub.getSkin());
+        botes[1] = new Bote(new Vector2(positionBotes * 4, Gdx.graphics.getHeight() / 10f * 6.5f), new Vector2(positionBotes * 2, 5 * PPM), Bote.Type.METAL, stage, hub.getSkin());
+        botes[2] = new Bote(new Vector2(positionBotes * 7, Gdx.graphics.getHeight() / 10f * 6.5f), new Vector2(positionBotes * 2, 5 * PPM), Bote.Type.ORGANICO, stage, hub.getSkin());
 
         stage.addActor(banda);
     }
@@ -109,7 +109,7 @@ public class PlayScreen extends GameScreen {
             if(timeSleep > 0.5) timeSleep-=0.08f;
 
             final String temp = AssetsManager.getRandom();
-            objetos.addObjeto(90, 15, getAssetManager().get(temp), AssetsManager.getType(temp));
+            objetos.addObjeto((int) (Gdx.graphics.getWidth() / PPM * 2.1), (int) (Gdx.graphics.getHeight() / PPM), getAssetManager().get(temp), AssetsManager.getType(temp));
         }
         hub.update();
         time += delta;
@@ -138,7 +138,7 @@ public class PlayScreen extends GameScreen {
 
         objetos.render(game.getBatch(), player, botes);
         player.update(game.getBatch());
-        player.movePlayer(hub.getPositionTouchPad().x, hub.getPositionTouchPad().y);
+//        player.movePlayer(hub.getPositionTouchPad().x, hub.getPositionTouchPad().y);
 
         stage.act();
         b2dr.render(world, camera.combined);

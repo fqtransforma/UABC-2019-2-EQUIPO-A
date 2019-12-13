@@ -1,5 +1,6 @@
 package com.mygame.pooa.desktop;
 
+import com.badlogic.gdx.Files;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.mygame.pooa.MyGamePOOA;
@@ -27,6 +28,8 @@ public class DesktopLauncher {
 		config.width = Toolkit.getDefaultToolkit().getScreenSize().width;
 		config.height = Toolkit.getDefaultToolkit().getScreenSize().height;
 		config.fullscreen = true;
+		config.title = "SEPARADOR 3000";
+		config.addIcon("icon.png", Files.FileType.Internal);
 		new LwjglApplication(new MyGamePOOA(), config);
 	}
 }

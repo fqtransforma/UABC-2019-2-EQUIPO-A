@@ -8,7 +8,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.mygame.pooa.actors.Player;
+import com.mygame.pooa.actors.Player.Player;
 import com.mygame.pooa.screens.PlayScreen;
 
 /**

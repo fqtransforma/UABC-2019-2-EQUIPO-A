@@ -18,13 +18,13 @@ public class FileManager {
     /**
      * Implementacion escencial de serializacion para almacenar el score
      */
-    public static class Scores extends Vector implements Serializable {
+    public static class Scores extends Vector<Integer> implements Serializable {
         /**
          * @return Maximo Score logrado
          */
         public int maxSize() {
             int _maxSize = 0;
-            for(int k=0; k<size(); k++) if(_maxSize < (int)get(k) ) _maxSize = (int) get(k);
+            for(int k=0; k<size(); k++) if(_maxSize < get(k) ) _maxSize = get(k);
             return _maxSize;
         }
     }
