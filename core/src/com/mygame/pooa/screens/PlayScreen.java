@@ -10,6 +10,7 @@
 package com.mygame.pooa.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -87,13 +88,13 @@ public class PlayScreen extends GameScreen {
 //        b2dr.setDrawBodies(false);
 
         stage = new Stage(new ScreenViewport());
+        Hub.objectDestroy = 5;
         hub = new Hub(stage);
-        Hub.objectDestroy = 10;
         gameOver = new GameOver(hub.getSkin(), game);
         gameMenu = new GameMenu(hub.getSkin(), game);
 
         player = new Player(world, new Vector2(Gdx.graphics.getWidth() / PPM, Gdx.graphics.getHeight() / PPM), new Vector2(4f, 4f));
-        banda = new Banda(world, new Vector2(-20, 1), new Vector2(Gdx.graphics.getWidth() / PPM * 4, Gdx.graphics.getHeight()));
+        banda = new Banda(world, new Vector2(-20, 0), new Vector2(Gdx.graphics.getWidth() / PPM * 4, Gdx.graphics.getHeight()));
         objetos = new Objetos(world);
 
         botes = new Bote[3];
@@ -122,17 +123,17 @@ public class PlayScreen extends GameScreen {
         if(Hub.objectDestroy <= 0) PlayScreen.isPause = true;
     }
 //    Monitoreo
-//    private void eventHandler() {
-//        if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) isPause = !isPause;
-//        if(Gdx.input.isKeyJustPressed(Input.Keys.B)) b2dr.setDrawBodies(!b2dr.isDrawBodies());
-//        if(Gdx.input.isKeyJustPressed(Input.Keys.P)) Gdx.app.exit();
-//    }
+    private void eventHandler() {
+        if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) isPause = !isPause;
+        if(Gdx.input.isKeyJustPressed(Input.Keys.B)) b2dr.setDrawBodies(!b2dr.isDrawBodies());
+        if(Gdx.input.isKeyJustPressed(Input.Keys.P)) Gdx.app.exit();
+    }
 
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(0.2f, 0.2f, 0.2f, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-//        eventHandler();
+        eventHandler();
 
         botes[0].render(game.getBatch());
         botes[1].render(game.getBatch());
@@ -148,13 +149,13 @@ public class PlayScreen extends GameScreen {
 
         if(!isPause) {
             update(delta);
-            if(firstSound.getVolume() < 1 && Hub.objectDestroy > 0 && soundVolume!=0) firstSound.setVolume(firstSound.getVolume()+0.01f);
             hub.update();
         } else {
-            if(firstSound.getVolume() >= 0.2 && soundVolume!=0) firstSound.setVolume(firstSound.getVolume()-0.01f);
             if(Hub.objectDestroy <= 0) gameOver.render();
             else gameMenu.render();
         }
+
+        firstSound.setVolume(PlayScreen.soundVolume);
     }
 
     public static AssetsManager getAssetManager() {

@@ -2,8 +2,11 @@ package com.mygame.pooa.screens.other;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.mygame.pooa.MyGamePOOA;
 import com.mygame.pooa.actors.Player.Player;
 import com.mygame.pooa.manager.FileManager;
@@ -24,6 +27,7 @@ public class GameOver {
     private Skin skin;
     private Label points;
     private TextButton button;
+    private Image imagenBg;
 
     private boolean isRender = false;
 
@@ -81,6 +85,11 @@ public class GameOver {
         temp.setPosition(window.getWidth() / 2f - temp.getWidth() / 2f, 60);
         window.add(temp);
 
+        imagenBg = new Image(new TextureRegionDrawable(new TextureRegion(new Texture("ui/transparencia.png"))));
+        imagenBg.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        imagenBg.setPosition(0, 0);
+
+        stage.addActor(imagenBg);
         stage.addActor(window);
     }
 

@@ -1,12 +1,14 @@
 package com.mygame.pooa.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygame.pooa.MyGamePOOA;
 
@@ -33,6 +35,7 @@ public class Home extends GameScreen {
     private Window windowCreditos;
     private Image imageCreditos;
     private ImageButton closeCreditos;
+    private Image logoFQT;
 
     public Home(MyGamePOOA game) {
         super(game);
@@ -101,11 +104,16 @@ public class Home extends GameScreen {
         table.row();
         table.add(new Label("", table.getSkin()));
 
+
+        logoFQT = new Image(new Texture("logos/fqt.png"));
+        logoFQT.setPosition(Gdx.graphics.getWidth() - logoFQT.getWidth() - 10f, Gdx.graphics.getHeight() - logoFQT.getHeight() - 5f);
+
         stage.addActor(table);
         stage.addActor(info);
         stage.addActor(setting);
         stage.addActor(scores);
         stage.addActor(playGame);
+        stage.addActor(logoFQT);
         creditosWindow();
         Gdx.input.setInputProcessor(stage);
     }
@@ -118,13 +126,14 @@ public class Home extends GameScreen {
         if(playGame.isPressed()) game.setScreen(game.playscreen);
         if(exitGame.isPressed()) Gdx.app.exit();
 
-        if(muteSound.isChecked()) PlayScreen.soundVolume = 1;
-        else PlayScreen.soundVolume = 0;
+        if(muteSound.isChecked() && muteSound.isPressed()) PlayScreen.soundVolume = 1;
+        else if(!muteSound.isChecked() && muteSound.isPressed()) PlayScreen.soundVolume = 0;
+        if(PlayScreen.soundVolume != 1) muteSound.setChecked(false);
+        if(PlayScreen.soundVolume != 0) muteSound.setChecked(true);
 
         if(setting.isChecked()) table.setVisible(true);
         else table.setVisible(false);
 
-        if(closeCreditos.isPressed()) info.setChecked(false);
         if(info.isChecked())  {
             imageCreditos.setVisible(true);
             windowCreditos.setVisible(true);
@@ -132,6 +141,8 @@ public class Home extends GameScreen {
             imageCreditos.setVisible(false);
             windowCreditos.setVisible(false);
         }
+        if(closeCreditos.isPressed()) info.setChecked(false);
+        if(windowCreditos.isTouchFocusTarget()) info.setChecked(false);
 
         stage.act();
         stage.draw();
@@ -151,13 +162,38 @@ public class Home extends GameScreen {
         windowCreditos.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture("ui/transparencia.png"))));
 
         closeCreditos = new ImageButton(new Skin(Gdx.files.internal("ui/normal.json")));
-        closeCreditos.getStyle().up = new TextureRegionDrawable(new TextureRegion(new Texture("ui/closeWindow.png")));
-        closeCreditos.getStyle().over = new TextureRegionDrawable(new TextureRegion(new Texture("ui/closeWindowHover.png")));
-        closeCreditos.getStyle().down = new TextureRegionDrawable(new TextureRegion(new Texture("ui/closeWindowHover.png")));
+        closeCreditos.getStyle().up = new TextureRegionDrawable(new TextureRegion(new Texture("ui/closeWindowHover.png")));
+        closeCreditos.getStyle().over = new TextureRegionDrawable(new TextureRegion(new Texture("ui/closeWindow.png")));
+        closeCreditos.getStyle().down = new TextureRegionDrawable(new TextureRegion(new Texture("ui/closeWindow.png")));
         closeCreditos.setSize(25, 25);
         closeCreditos.setPosition(windowCreditos.getWidth() - closeCreditos.getWidth(), windowCreditos.getHeight() - closeCreditos.getHeight());
-        windowCreditos.add(closeCreditos);
 
+        Table credito = new Table();
+        windowCreditos.getStyle().titleFontColor.set(Color.WHITE);
+        Label autores = new Label("AUTORES\nAbraham Medina Carrillo\nAlejandro Gonzalez Zepeda\nJesus Emmanuel Rogriguez Estrada", windowCreditos.getSkin());
+        autores.setAlignment(Align.center);
+        credito.add(autores);
+        credito.row();
+        credito.add(new Label("", windowCreditos.getSkin()));
+        credito.row();
+
+        Label fundacion = new Label("FUNDACION\nFundacion Que Transforma", windowCreditos.getSkin());
+        fundacion.setAlignment(Align.center);
+        credito.add(fundacion);
+        credito.row();
+        credito.add(new Label("", windowCreditos.getSkin()));
+        credito.row();
+
+        Label agradecimiento = new Label("SUPERVISOR\nDr. Manuel Castanon Puga", windowCreditos.getSkin());
+        agradecimiento.setAlignment(Align.center);
+        credito.add(agradecimiento);
+
+        ScrollPane scrollPane = new ScrollPane(credito);
+        scrollPane.setPosition(0, 0);
+        scrollPane.setSize(windowCreditos.getWidth(), windowCreditos.getHeight());
+
+        windowCreditos.add(scrollPane);
+        windowCreditos.add(closeCreditos);
 
         stage.addActor(imageCreditos);
         stage.addActor(windowCreditos);
