@@ -33,7 +33,6 @@ public class MyGamePOOA extends Game {
 	/**
 	 * Constructor
 	 */
-	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();

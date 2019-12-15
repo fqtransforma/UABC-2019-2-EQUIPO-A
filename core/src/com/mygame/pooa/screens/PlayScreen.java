@@ -59,6 +59,7 @@ public class PlayScreen extends GameScreen {
     private static float time = 0;
     private static boolean inicializado = false;
     public static boolean isPause = false;
+    public static float soundVolume = 1;
 
     private Music firstSound;
     private static MyGamePOOA game;
@@ -75,6 +76,7 @@ public class PlayScreen extends GameScreen {
         firstSound = game.assetsManager.get("sound1");
         firstSound.setLooping(true);
         firstSound.play();
+        firstSound.setVolume(soundVolume);
 
         inicializado = true;
         camera = new OrthographicCamera();
@@ -91,7 +93,7 @@ public class PlayScreen extends GameScreen {
         gameMenu = new GameMenu(hub.getSkin(), game);
 
         player = new Player(world, new Vector2(Gdx.graphics.getWidth() / PPM, Gdx.graphics.getHeight() / PPM), new Vector2(4f, 4f));
-        banda = new Banda(world, new Vector2(-20, 1), new Vector2(Gdx.graphics.getWidth() / PPM * 3, Gdx.graphics.getHeight()));
+        banda = new Banda(world, new Vector2(-20, 1), new Vector2(Gdx.graphics.getWidth() / PPM * 4, Gdx.graphics.getHeight()));
         objetos = new Objetos(world);
 
         botes = new Bote[3];
@@ -109,7 +111,7 @@ public class PlayScreen extends GameScreen {
             if(timeSleep > 0.5) timeSleep-=0.08f;
 
             final String temp = AssetsManager.getRandom();
-            objetos.addObjeto((int) (Gdx.graphics.getWidth() / PPM * 2.1), (int) (Gdx.graphics.getHeight() / PPM), getAssetManager().get(temp), AssetsManager.getType(temp));
+            objetos.addObjeto((int) (Gdx.graphics.getWidth() / PPM * 2.2), (int) (Gdx.graphics.getHeight() / PPM) * 2, getAssetManager().get(temp), AssetsManager.getType(temp));
         }
         hub.update();
         time += delta;
@@ -146,10 +148,10 @@ public class PlayScreen extends GameScreen {
 
         if(!isPause) {
             update(delta);
-            if(firstSound.getVolume() < 1 && Hub.objectDestroy > 0) firstSound.setVolume(firstSound.getVolume()+0.01f);
+            if(firstSound.getVolume() < 1 && Hub.objectDestroy > 0 && soundVolume!=0) firstSound.setVolume(firstSound.getVolume()+0.01f);
             hub.update();
         } else {
-            if(firstSound.getVolume() >= 0.2) firstSound.setVolume(firstSound.getVolume()-0.01f);
+            if(firstSound.getVolume() >= 0.2 && soundVolume!=0) firstSound.setVolume(firstSound.getVolume()-0.01f);
             if(Hub.objectDestroy <= 0) gameOver.render();
             else gameMenu.render();
         }
