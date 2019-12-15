@@ -7,6 +7,7 @@ import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Shape2D;
 import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.mygame.pooa.actors.Entity;
 import com.mygame.pooa.actors.reciclar.Bote;
 import com.mygame.pooa.screens.PlayScreen;
@@ -62,7 +63,6 @@ public class Objeto extends Entity {
     /**
      * @param batch Necesario para dibujar el sprite modificado del actor
      */
-
     public void render(Batch batch) {
         sprite.setSize(4f, 4f);
         sprite.setPosition(body.getPosition().x - sprite.getWidth() / 2, body.getPosition().y - sprite.getHeight() / 2);

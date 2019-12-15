@@ -12,12 +12,12 @@ package com.mygame.pooa.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygame.pooa.MyGamePOOA;
 import com.mygame.pooa.actors.Banda;
@@ -64,6 +64,7 @@ public class PlayScreen extends GameScreen {
 
     private Music firstSound;
     private static MyGamePOOA game;
+    private Image image;
 
     public PlayScreen(MyGamePOOA game) {
         super(game);
@@ -72,6 +73,9 @@ public class PlayScreen extends GameScreen {
 
     @Override
     public void show() {
+        image = new Image(new Texture("images/backgroundMain.jpg"));
+        image.setScale(1 / PPM * 2);
+
         isPause = false;
         resetTimeSleep();
         firstSound = game.assetsManager.get("sound1");
@@ -85,7 +89,8 @@ public class PlayScreen extends GameScreen {
 
         world = new World(new Vector2(GravedadX * PPM / 5, -9.8f * PPM / 5), false);
         b2dr = new Box2DDebugRenderer();
-//        b2dr.setDrawBodies(false);
+        b2dr.setDrawJoints(false);
+        b2dr.setDrawBodies(false);
 
         stage = new Stage(new ScreenViewport());
         Hub.objectDestroy = 5;
@@ -94,7 +99,7 @@ public class PlayScreen extends GameScreen {
         gameMenu = new GameMenu(hub.getSkin(), game);
 
         player = new Player(world, new Vector2(Gdx.graphics.getWidth() / PPM, Gdx.graphics.getHeight() / PPM), new Vector2(4f, 4f));
-        banda = new Banda(world, new Vector2(-20, 0), new Vector2(Gdx.graphics.getWidth() / PPM * 4, Gdx.graphics.getHeight()));
+        banda = new Banda(world, new Vector2(-20, 0.1f), new Vector2(Gdx.graphics.getWidth() / PPM * 4, Gdx.graphics.getHeight()));
         objetos = new Objetos(world);
 
         botes = new Bote[3];
@@ -133,6 +138,9 @@ public class PlayScreen extends GameScreen {
     public void render(float delta) {
         Gdx.gl.glClearColor(0.2f, 0.2f, 0.2f, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        game.getBatch().begin();
+        image.draw(game.getBatch(), 1);
+        game.getBatch().end();
         eventHandler();
 
         botes[0].render(game.getBatch());

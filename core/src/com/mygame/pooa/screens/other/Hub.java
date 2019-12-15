@@ -12,7 +12,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
@@ -30,13 +29,13 @@ import com.mygame.pooa.screens.PlayScreen;
 
 public class Hub {
     public static int objectDestroy = 5;
-    private int vidaAux = 5;
+    private int vidaAux;
 
     private Stage stage;
     private Skin skin;
-    private Label label;
+//    private Label label;
+//    private Label puntos;
     private ImageButton menu;
-    private Label puntos;
 
     private Table vidas;
     private Image vidasBg;
@@ -50,13 +49,13 @@ public class Hub {
         vidaAux = objectDestroy;
         skin = new Skin(Gdx.files.internal("ui/normal.json"));
 
-        label = new Label("Vidas: 0", skin);
-        label.getStyle().fontColor.set(Color.WHITE);
-        label.setPosition(15, stage.getHeight() - label.getHeight() * 1.5f);
-
-        puntos = new Label("Puntos: 0", skin);
-        puntos.getStyle().fontColor.set(Color.WHITE);
-        puntos.setPosition(stage.getWidth() / 2f - puntos.getWidth() / 2, stage.getHeight() - puntos.getHeight() * 1.5f);
+//        label = new Label("Vidas: 0", skin);
+//        label.getStyle().fontColor.set(Color.WHITE);
+//        label.setPosition(15, stage.getHeight() - label.getHeight() * 1.5f);
+//
+//        puntos = new Label("Puntos: 0", skin);
+//        puntos.getStyle().fontColor.set(Color.WHITE);
+//        puntos.setPosition(stage.getWidth() / 2f - puntos.getWidth() / 2, stage.getHeight() - puntos.getHeight() * 1.5f);
 
         menu = new ImageButton(skin);
         menu.getStyle().up = new TextureRegionDrawable(new TextureRegion(new Texture("ui/menuGame.png")));
@@ -109,8 +108,8 @@ public class Hub {
             vidaAux = objectDestroy;
         }
 
-        puntos.setText("Puntos: " + Player.Points);
-        label.setText("Vidas: " + objectDestroy);
+//        puntos.setText("Puntos: " + Player.Points);
+//        label.setText("Vidas: " + objectDestroy);
     }
 
     /**

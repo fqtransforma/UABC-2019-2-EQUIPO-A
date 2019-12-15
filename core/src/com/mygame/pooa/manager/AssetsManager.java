@@ -29,10 +29,15 @@ public class AssetsManager extends AssetManager {
         // Musica
         addAsset("sound1", Music.class, Gdx.audio.newMusic(Gdx.files.internal("sounds/music/BlackBetty.mp3")));
         // Imagenes
-        addAsset("player", Texture.class, new Texture(Gdx.files.internal("images/badlogic.jpg")));
-        addAsset("metal", Texture.class, new Texture(Gdx.files.internal("images/badlogic2.jpg")));
-        addAsset("papel", Texture.class, new Texture(Gdx.files.internal("images/badlogic.jpg")));
-        addAsset("organico", Texture.class, new Texture(Gdx.files.internal("images/badlogic3.jpg")));
+        addAsset("player", Texture.class, new Texture(Gdx.files.internal("images/player.png")));
+
+        addAsset("metal", Texture.class, new Texture(Gdx.files.internal("images/metal.png")));
+        addAsset("papel", Texture.class, new Texture(Gdx.files.internal("images/papel.png")));
+        addAsset("organico", Texture.class, new Texture(Gdx.files.internal("images/organico.png")));
+
+        addAsset("metalBote", Texture.class, new Texture(Gdx.files.internal("images/metalBote.png")));
+        addAsset("papelBote", Texture.class, new Texture(Gdx.files.internal("images/papelBote.png")));
+        addAsset("organicoBote", Texture.class, new Texture(Gdx.files.internal("images/organicoBote.png")));
     }
 
     /**

@@ -32,9 +32,9 @@ public class Bote {
 
     private static Texture setTexture(Type type) {
         switch (type) { // Por defecto sera organico
-            case METAL: return PlayScreen.getAssetManager().get("metal");
-            case PAPEL: return PlayScreen.getAssetManager().get("papel");
-            default: return PlayScreen.getAssetManager().get("organico");
+            case METAL: return PlayScreen.getAssetManager().get("metalBote");
+            case PAPEL: return PlayScreen.getAssetManager().get("papelBote");
+            default: return PlayScreen.getAssetManager().get("organicoBote");
         }
     }
 
@@ -74,7 +74,7 @@ public class Bote {
         this.type = type;
 
         label = new Label("" + countObject, skin);
-        label.setPosition(position.x + size.x / 2f - label.getWidth() / 2f, position.y + size.y + label.getHeight() / 2f);
+        label.setPosition(position.x + size.x - label.getWidth() * 2.5f, position.y + size.y - label.getHeight() * 1.5f);
         stage.addActor(label);
     }
     public Shape2D getShape() {
