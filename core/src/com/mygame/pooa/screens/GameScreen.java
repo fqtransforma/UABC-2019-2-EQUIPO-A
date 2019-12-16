@@ -5,7 +5,7 @@ import com.mygame.pooa.MyGamePOOA;
 
 /**
  * Clase abstracta para el manejo de la pantalla en las diferentes clases.
- *  @author Abraham Medina Carrillo
+ *  @author <a href="https://github.com/medina1402" target="_blank">Abraham Medina Carrillo</a>
  *  @author Jesus Emmanuel Rodriguez Estrada
  *  @author Alejandro Gonzalez Zepeda
  */
@@ -16,7 +16,6 @@ public abstract class GameScreen implements Screen {
     /**
      * @param game Manegador de pantallas
      */
-
     public GameScreen(MyGamePOOA game){
         this.game = game;
     }

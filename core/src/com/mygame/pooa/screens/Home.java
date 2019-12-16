@@ -14,7 +14,7 @@ import com.mygame.pooa.MyGamePOOA;
 
 /**
  * Pantalla de inicio
- * @author Abraham Medina Carrillo
+ * @author <a href="https://github.com/medina1402" target="_blank">Abraham Medina Carrillo</a>
  * @author Jesus Emmanuel Rodriguez Estrada
  * @author Alejandro Gonzalez Zepeda
  */
@@ -24,13 +24,16 @@ public class Home extends GameScreen {
     private Image image;
 
     private ImageButton playGame;
-    private ImageButton scores;
     private CheckBox info;
     private CheckBox setting;
 
     private ImageButton exitGame;
     private CheckBox muteSound;
     private Table table;
+
+    private Window windowControlHelp;
+    private ImageButton controlHelp;
+    private ImageButton closeControlHelp;
 
     private Window windowCreditos;
     private Image imageCreditos;
@@ -58,12 +61,12 @@ public class Home extends GameScreen {
         playGame.setSize(479 * 3f / 4, 153 * 3f / 4);
         playGame.setPosition(Gdx.graphics.getWidth() / 2f - playGame.getWidth() / 2, heightUse * 6 - playGame.getHeight() * 4f / 5);
 
-        scores = new ImageButton(new Skin(Gdx.files.internal("ui/normal.json")));
-        scores.getStyle().up = new TextureRegionDrawable(new TextureRegion(new Texture("ui/score.png")));
-        scores.getStyle().over = new TextureRegionDrawable(new TextureRegion(new Texture("ui/scoreHover.png")));
-        scores.getStyle().down = new TextureRegionDrawable(new TextureRegion(new Texture("ui/scoreHover.png")));
-        scores.setSize(479 / 2f, 153 / 2f);
-        scores.setPosition(Gdx.graphics.getWidth() / 2f - scores.getWidth() / 2, heightUse * 4 - scores.getHeight() / 2);
+        controlHelp = new ImageButton(new Skin(Gdx.files.internal("ui/normal.json")));
+        controlHelp.getStyle().up = new TextureRegionDrawable(new TextureRegion(new Texture("ui/score.png")));
+        controlHelp.getStyle().over = new TextureRegionDrawable(new TextureRegion(new Texture("ui/scoreHover.png")));
+        controlHelp.getStyle().down = new TextureRegionDrawable(new TextureRegion(new Texture("ui/scoreHover.png")));
+        controlHelp.setSize(479 / 2f, 153 / 2f);
+        controlHelp.setPosition(Gdx.graphics.getWidth() / 2f - controlHelp.getWidth() / 2, heightUse * 4 - controlHelp.getHeight() / 2);
 
         info = new CheckBox("", new Skin(Gdx.files.internal("ui/normal.json")));
         info.getStyle().checkboxOff = new TextureRegionDrawable(new TextureRegion(new Texture("ui/info.png")));
@@ -104,17 +107,17 @@ public class Home extends GameScreen {
         table.row();
         table.add(new Label("", table.getSkin()));
 
-
         logoFQT = new Image(new Texture("logos/fqt.png"));
         logoFQT.setPosition(Gdx.graphics.getWidth() - logoFQT.getWidth() - 10f, Gdx.graphics.getHeight() - logoFQT.getHeight() - 5f);
 
         stage.addActor(table);
         stage.addActor(info);
         stage.addActor(setting);
-        stage.addActor(scores);
+        stage.addActor(controlHelp);
         stage.addActor(playGame);
         stage.addActor(logoFQT);
         creditosWindow();
+        controllerWindow();
         Gdx.input.setInputProcessor(stage);
     }
 
@@ -144,10 +147,19 @@ public class Home extends GameScreen {
         if(closeCreditos.isPressed()) info.setChecked(false);
         if(windowCreditos.isTouchFocusTarget()) info.setChecked(false);
 
+
+        if(controlHelp.isPressed()) windowControlHelp.setVisible(true);
+        if(windowControlHelp.isVisible()) imageCreditos.setVisible(true);
+
+        if(closeControlHelp.isPressed()) windowControlHelp.setVisible(false);
+
         stage.act();
         stage.draw();
     }
 
+    /**
+     * Creacion de la ventana emergente para los creditos
+     */
     private void creditosWindow() {
         imageCreditos = new Image(new Texture("ui/transparencia.png"));
         imageCreditos.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -197,6 +209,27 @@ public class Home extends GameScreen {
 
         stage.addActor(imageCreditos);
         stage.addActor(windowCreditos);
+    }
+
+    /**
+     * Ventana de controles a utilizar
+     */
+    private void controllerWindow() {
+        windowControlHelp = new Window("", new Skin(Gdx.files.internal("ui/normal.json")));
+        windowControlHelp.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        windowControlHelp.setMovable(false);
+        windowControlHelp.setModal(true);
+        windowControlHelp.setVisible(false);
+        windowControlHelp.setLayoutEnabled(false);
+        windowControlHelp.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture("images/controles.png"))));
+
+        closeControlHelp = new ImageButton(new Skin(Gdx.files.internal("ui/normal.json")));
+        closeControlHelp.getStyle().up = new TextureRegionDrawable(new TextureRegion(new Texture("ui/closeWindow.png")));
+        closeControlHelp.getStyle().over = new TextureRegionDrawable(new TextureRegion(new Texture("ui/closeWindowHover.png")));
+        closeControlHelp.getStyle().down = new TextureRegionDrawable(new TextureRegion(new Texture("ui/closeWindowHover.png")));
+        closeControlHelp.setPosition(windowControlHelp.getWidth() - closeControlHelp.getWidth() - 15, windowControlHelp.getHeight() - closeControlHelp.getHeight() - 15);
+        windowControlHelp.add(closeControlHelp);
+        stage.addActor(windowControlHelp);
     }
 
     @Override

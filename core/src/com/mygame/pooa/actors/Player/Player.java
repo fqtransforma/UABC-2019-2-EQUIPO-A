@@ -1,11 +1,3 @@
-/**
- *  SEPARADOR 3000 1.0
- *  APLICACION PARA ESCRITORIO DE ENTRETENIMIENTO Y CONCIENTIZACION SOBRE EL RECICLAJE
- *  AUTORES: Gonzalez Zepeda Alejandro, Medina Carrillo Abraham, Rodriguez Estrada Jesus Emmanuel
- *  CORREO ELECTRONICO {alejandro.gonzalez96, abraham.medina.carrillo, emmanuel.rodriguez40 }@uabc.edu.mx
- *  UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
- *  http://uabc.mx
- */
 package com.mygame.pooa.actors.Player;
 
 import com.badlogic.gdx.Gdx;
@@ -25,7 +17,7 @@ import com.mygame.pooa.utils.CreateShape;
 
 /**
  * Jugador principal, incluye fisicas personalizadas y variables necesarias para su colision con las diferentes entidades
- * @author Abraham Medina Carrillo
+ * @author <a href="https://github.com/medina1402" target="_blank">Abraham Medina Carrillo</a>
  * @author Jesus Emmanuel Rodriguez Estrada
  * @author Alejandro Gonzalez Zepeda
  * @see Controller
@@ -91,7 +83,6 @@ public class Player extends Entity {
      * @see Entity
      * @param batch Necesario para dibujar el Sprite de la entidad
      */
-
     public void update(Batch batch) {
         joystick.render();
         sprite.setSize(4f, 4f);
@@ -121,6 +112,9 @@ public class Player extends Entity {
         return body.getPosition();
     }
 
+    /**
+     * @return Retorna la figura geometrica a utilizar con la colisionador
+     */
     public Shape2D getShape() {
         return polygon;
     }

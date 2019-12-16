@@ -20,7 +20,7 @@ import java.util.Vector;
 
 /**
  * Contendra a los objetos para la detencion de colisiones, renderizado de los objetos
- * @author Abraham Medina Carrillo
+ * @author <a href="https://github.com/medina1402" target="_blank">Abraham Medina Carrillo</a>
  * @author Jesus Emmanuel Rodriguez Estrada
  * @author Alejandro Gonzalez Zepeda
  * @see Objeto
@@ -38,7 +38,6 @@ public class Objetos {
     /**
      * @param world Mundo donde se colocaran los actores y demas entidades
      */
-
     public Objetos(World world) {
         this.world = world;
         objetos = new Vector<>();
@@ -50,7 +49,6 @@ public class Objetos {
      * @param type Tipo de material (necesario para las colisiones en los botes)
      * @param texture Imagen que tendra el objeto a la hora de renderizarse
     */
-
     public void addObjeto(int x, int y, Texture texture, Bote.Type type) {
         objetos.add(new Objeto(world, x, y, BodyDef.BodyType.DynamicBody, texture, type));
     }
@@ -62,10 +60,9 @@ public class Objetos {
      * @param botes Necesaria para la detenccion de colision con los mismo, deben incluir el tipo del cual son.
      * @see Bote
      */
-
     public void render(Batch batch, Player player, Bote[] botes) {
         for(int k=0; k<objetos.size(); k++) {
-            if(objetos.get(k).getPosition().x < -5f) {
+            if(objetos.get(k).getPosition().x < -20f) {
                 removeObjeto(objetos.get(k));
                 Hub.objectDestroy--;
             }
@@ -106,12 +103,14 @@ public class Objetos {
     /**
      * @param objeto Objeto que sera destruido del conjunto principal (arreglo) y del mundo donde se encuentra
      */
-
     public void removeObjeto(Objeto objeto) {
         objetos.remove(objeto);
         objeto.dispose(world);
     }
 
+    /**
+     * Remueve todos los elementos contenido, incluyendo las fisicas, fraficos y comportamiento que este contenia
+     */
     public void dispose() {
         for(int k=0; k<objetos.size(); k++) removeObjeto(objetos.get(k));
     }

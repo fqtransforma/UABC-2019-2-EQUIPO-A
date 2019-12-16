@@ -7,14 +7,13 @@ import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Shape2D;
 import com.badlogic.gdx.physics.box2d.*;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.mygame.pooa.actors.Entity;
 import com.mygame.pooa.actors.reciclar.Bote;
 import com.mygame.pooa.screens.PlayScreen;
 
 /**
  * Encargada de crear los objetos a reciclar, dependera de la cantidad de tipos de Bote
- * @author Abraham Medina Carrillo
+ * @author <a href="https://github.com/medina1402" target="_blank">Abraham Medina Carrillo</a>
  * @author Jesus Emmanuel Rodriguez Estrada
  * @author Alejandro Gonzalez Zepeda
  * @see com.mygame.pooa.actors.Entity
@@ -49,6 +48,10 @@ public class Objeto extends Entity {
         body.setAngularVelocity(0.1f);
     }
 
+    /**
+     * @return Retorna el material, utilizado para obtener los puntos que este ofrece
+     * @see Objetos
+     */
     public Bote.Type getType() {
         return type;
     }
@@ -77,6 +80,9 @@ public class Objeto extends Entity {
         polygon.setRotation(sprite.getRotation());
     }
 
+    /**
+     * @return Retorna la figura geometrica a utilizar con la colisionador
+     */
     public Shape2D getShape() {
         return polygon;
     }

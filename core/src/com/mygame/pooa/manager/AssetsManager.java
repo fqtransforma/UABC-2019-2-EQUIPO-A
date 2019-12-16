@@ -19,7 +19,7 @@ import java.util.Random;
 
 /**
  * Contiene los recursos necesarios para utilizar durante el juego
- *  @author Abraham Medina Carrillo
+ *  @author <a href="https://github.com/medina1402" target="_blank">Abraham Medina Carrillo</a>
  *  @author Jesus Emmanuel Rodriguez Estrada
  *  @author Alejandro Gonzalez Zepeda
  */
@@ -45,7 +45,6 @@ public class AssetsManager extends AssetManager {
      * @param data Tipo de basura en texto
      * @return Tipo de basura para colisionar
      */
-
     public static Bote.Type getType(String data) {
         if(data.toLowerCase().equals("metal")) return Bote.Type.METAL;
         if(data.toLowerCase().equals("papel")) return Bote.Type.PAPEL;

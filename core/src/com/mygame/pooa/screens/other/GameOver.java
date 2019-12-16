@@ -13,22 +13,20 @@ import com.mygame.pooa.manager.FileManager;
 
 /**
  * Clase en la que se maneja la situación en la termina el juego.
- * @author Abraham Medina Carrillo
+ * @author <a href="https://github.com/medina1402" target="_blank">Abraham Medina Carrillo</a>
  * @author Jesus Emmanuel Rodriguez Estrada
  * @author Alejandro Gonzalez Zepeda
- *
  */
-
 public class GameOver {
     private MyGamePOOA game;
-
     private Stage stage;
     private Window window;
     private Skin skin;
-    private Label points;
-    private TextButton button;
-    private Image imagenBg;
 
+    private Image imagenBg;
+    private ImageButton continuar;
+
+    private FileManager.Scores scores;
     private boolean isRender = false;
 
     /**
@@ -37,53 +35,46 @@ public class GameOver {
      * @see Skin
      * @see GameMenu
      */
-
     public GameOver(Skin skin, MyGamePOOA game) {
         this.game = game;
         this.skin = skin;
         stage = new Stage();
-
-        this.init();
     }
 
+    /**
+     * Crea el contenido que se mostrara
+     */
     private void init() {
+        isRender = false;
+
+        scores = FileManager.readFile("scores.bin");
         window = new Window("", skin);
-        window.setSize(Gdx.graphics.getWidth() / 3f, Gdx.graphics.getHeight() * 3f / 4f);
+        window.setSize(Gdx.graphics.getWidth() / 3f, Gdx.graphics.getHeight() * 5f / 6f);
         window.setPosition(Gdx.graphics.getWidth() / 2f - window.getWidth() / 2f, Gdx.graphics.getHeight() / 2f - window.getHeight() / 2f);
-
-        Label label = new Label("NOMBRE DE USUARIO", skin);
-        label.setColor(Color.BLACK);
-        label.setSize(label.getWidth(), 70);
-        label.setPosition(window.getWidth() / 2f - label.getWidth() / 2f, window.getHeight() - label.getHeight() * 2);
-
-        points = new Label("0", skin);
-        points.setColor(Color.BLACK);
-        points.setFontScale(1.5f);
-        points.setSize(points.getWidth(), 70);
-        points.setPosition(window.getWidth() / 2f - points.getWidth(), window.getY() + points.getHeight() * 2.5f);
-
-        TextField textField = new TextField("", skin);
-        textField.setColor(Color.LIGHT_GRAY);
-        textField.setSize(window.getWidth() * 3f / 4f, 70);
-        textField.setPosition(window.getWidth() / 8, label.getY() - textField.getHeight());
-
-        button = new TextButton("CONTINUAR", skin);
-        button.setColor(Color.GRAY);
-        button.setSize(textField.getWidth(), textField.getHeight());
-        button.setPosition(textField.getX(), window.getY() + button.getHeight());
-        button.setDisabled(false);
-
+        window.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture("ui/gameOver.png"))));
+        window.setMovable(false);
         window.setLayoutEnabled(false);
-        window.add(textField, label, button, points);
 
-        FileManager.Scores scores = FileManager.readFile("scores.txt");
-        scores.add(Player.Points);
-        FileManager.saveFile(scores, "scores.txt");
-        Label temp = new Label("MAXSCORE: " + scores.maxSize() + "", skin);
-        temp.setColor(Color.BLACK);
-        temp.setSize(label.getWidth(), 70);
-        temp.setPosition(window.getWidth() / 2f - temp.getWidth() / 2f, 60);
-        window.add(temp);
+        continuar = new ImageButton(new Skin(Gdx.files.internal("ui/normal.json")));
+        continuar.getStyle().up = new TextureRegionDrawable(new TextureRegion(new Texture("ui/gameOverContinuar.png")));
+        continuar.getStyle().over = new TextureRegionDrawable(new TextureRegion(new Texture("ui/gameOverContinuarH.png")));
+        continuar.getStyle().down = new TextureRegionDrawable(new TextureRegion(new Texture("ui/gameOverContinuarH.png")));
+        continuar.setSize(324, 80);
+        continuar.setPosition(window.getWidth() / 2 - continuar.getWidth() / 2, continuar.getHeight() / 7 * 6);
+
+        Label score = new Label("" + Player.Points, skin);
+        score.getStyle().fontColor.set(Color.BLACK);
+        score.setPosition(window.getWidth() / 2f + 25, window.getHeight() / 2f - 25);
+
+        Label position = new Label("0", skin);
+
+        System.out.println(scores.size());
+
+        position.setText( scores.addItem(Player.Points) + "" );
+        position.setPosition(score.getX(), score.getY() - 55);
+        window.add(continuar, score, position);
+
+        FileManager.saveFile(scores, "scores.bin");
 
         imagenBg = new Image(new TextureRegionDrawable(new TextureRegion(new Texture("ui/transparencia.png"))));
         imagenBg.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -98,22 +89,15 @@ public class GameOver {
      * Los eventos de entrada afectaran solo a esta instancia y sus objetos contenidos (en su Stage)
      * @see Stage
      */
-
     public void render() {
+        Gdx.input.setInputProcessor(stage);
         if(!isRender) {
             this.init();
             isRender = true;
         }
 
-        Gdx.input.setInputProcessor(stage);
-        points.setText("" + Player.Points);
-        points.setPosition(window.getWidth() / 2f - points.getWidth(), window.getY() + points.getHeight() * 2.5f);
-
         if(window.getScaleX() < 1) window.setScale(window.getScaleX() + 0.1f);
-        if(button.isPressed() && !button.isDisabled()) {
-            game.setScreen(game.home);
-            isRender = false;
-        }
+        if(continuar.isPressed()) game.setScreen(game.home);
 
         stage.act();
         stage.draw();

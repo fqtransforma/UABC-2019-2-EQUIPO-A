@@ -15,10 +15,9 @@ import com.mygame.pooa.screens.PlayScreen;
 
 /**
  * Pantalla de Menu
- *  @author Abraham Medina Carrillo
+ *  @author <a href="https://github.com/medina1402" target="_blank">Abraham Medina Carrillo</a>
  *  @author Jesus Emmanuel Rodriguez Estrada
  *  @author Alejandro Gonzalez Zepeda
- *
  */
 
 public class GameMenu {
@@ -31,6 +30,7 @@ public class GameMenu {
     private Slider controlVolume;
     private Label controlVolumeIndicator;
     private Image imagenBg;
+
 /**
  * Menu principal del juego
  */
@@ -43,7 +43,6 @@ public class GameMenu {
         window.setPosition(Gdx.graphics.getWidth() / 2f - window.getWidth() / 2f, Gdx.graphics.getHeight() / 2f - window.getHeight() / 2f);
         window.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture("ui/pausaWindow.png"))));
 
-        /** SECCION DE LA OPCIONES */
         continuar = new ImageButton(new Skin(Gdx.files.internal("ui/normal.json")));
         continuar.getStyle().up = new TextureRegionDrawable(new TextureRegion(new Texture("ui/continuar.png")));
         continuar.getStyle().over = new TextureRegionDrawable(new TextureRegion(new Texture("ui/continuarHover.png")));
@@ -87,6 +86,7 @@ public class GameMenu {
             }
         });
     }
+
     /**
      * Se encarga de actualizar el contenido en el escenario actual, creando una ventana para una mejor visualizacion
      */

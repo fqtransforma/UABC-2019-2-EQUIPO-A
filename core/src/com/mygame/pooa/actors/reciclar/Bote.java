@@ -9,27 +9,30 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.mygame.pooa.actors.Player.Player;
+import com.mygame.pooa.actors.reciclar.categoria.Objetos;
 import com.mygame.pooa.screens.PlayScreen;
 
 /**
  * Clase necesaria para la obtencion de puntos al realizar una clasificacion correcta de materiales, los cuales deben ser del mismo tipo que el bote
- * @author Abraham Medina Carrillo
+ * @author <a href="https://github.com/medina1402" target="_blank">Abraham Medina Carrillo</a>
  * @author Jesus Emmanuel Rodriguez Estrada
  * @author Alejandro Gonzalez Zepeda
  */
 
 public class Bote {
-
     /**
      * Tipos de material que el bote puede adoptar
      */
-
     public enum Type {
         PAPEL,
         METAL,
         ORGANICO
     }
 
+    /**
+     * @param type Tipo de material
+     * @return Imagen/Textura correspondiente al material
+     */
     private static Texture setTexture(Type type) {
         switch (type) { // Por defecto sera organico
             case METAL: return PlayScreen.getAssetManager().get("metalBote");
@@ -55,9 +58,7 @@ public class Bote {
      * @param skin Estilo grafico que tendran los componentes de UI
      * @see Skin
      * @see Stage
-     * @see com.badlogic.gdx.scenes.scene2d.Actor
     */
-
     public Bote(Vector2 position, Vector2 size, Type type, Stage stage, Skin skin) {
         this.position = position;
         this.size = size;
@@ -74,17 +75,29 @@ public class Bote {
         this.type = type;
 
         label = new Label("" + countObject, skin);
-        label.setPosition(position.x + size.x - label.getWidth() * 2.5f, position.y + size.y - label.getHeight() * 1.5f);
+        label.setPosition(position.x + size.x - label.getWidth() * 2.75f, position.y + size.y - label.getHeight() * 1.5f);
         stage.addActor(label);
     }
+
+    /**
+     * @return Retorna la figura geometrica a utilizar con la colisionador
+     */
     public Shape2D getShape() {
         return polygon;
     }
 
+    /**
+     * @return Retorna el material, utilizado para obtener los puntos que este ofrece
+     * @see Objetos
+     */
     public Type getType() {
         return type;
     }
 
+    /**
+     * Incrementa la cantidad de elementos que colisionaron con el objeto correcto
+     * @see com.mygame.pooa.actors.reciclar.categoria.Objeto
+     */
     public void incrementCount() {
         label.setText("" + ++countObject);
 
@@ -96,7 +109,6 @@ public class Bote {
     /**
      * @param batch Necesario para dibujar los graficos
      */
-
     public void render(SpriteBatch batch) {
         batch.begin();
         batch.draw(texture, position.x / PlayScreen.PPM * 2, position.y / PlayScreen.PPM * 2, size.x / PlayScreen.PPM * 2, size.y / PlayScreen.PPM * 2);

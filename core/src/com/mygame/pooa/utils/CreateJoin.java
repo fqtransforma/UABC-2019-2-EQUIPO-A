@@ -11,7 +11,7 @@ public class CreateJoin {
 
     /**
      * Creara un elemento que unira a las entidades (a sus {@link Body}s), aun podra moverse de forma independiente, pero sin alejarse mas de la distancia designada
-     * @author Abraham Medina Carrillo
+     * @author <a href="https://github.com/medina1402" target="_blank">Abraham Medina Carrillo</a>
      * @author Jesus Emmanuel Rodriguez Estrada
      * @author Alejandro Gonzalez Zepeda
      * @param bodyA Cuerpo al cual se le unira el {@link Body}B

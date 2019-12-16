@@ -1,15 +1,6 @@
-/**
- *  SEPARADOR 3000 1.0
- *  APLICACION PARA ESCRITORIO DE ENTRETENIMIENTO Y CONCIENTIZACION SOBRE EL RECICLAJE
- *  AUTORES: Gonzalez Zepeda Alejandro, Medina Carrillo Abraham, Rodriguez Estrada Jesus Emmanuel
- *  CORREO ELECTRONICO {alejandro.gonzalez96, abraham.medina.carrillo, emmanuel.rodriguez40 }@uabc.edu.mx
- *  UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
- *  http://uabc.mx
- */
 package com.mygame.pooa.screens.other;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -17,12 +8,11 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.mygame.pooa.actors.Player.Player;
 import com.mygame.pooa.screens.PlayScreen;
 
 /**
  * Contiene todos los elementos de UI que se veran en la pantalla de juego, como las vidas, los puntos, la opcion para abrir el menu de pause
- *  @author Abraham Medina Carrillo
+ *  @author <a href="https://github.com/medina1402" target="_blank">Abraham Medina Carrillo</a>
  *  @author Jesus Emmanuel Rodriguez Estrada
  *  @author Alejandro Gonzalez Zepeda
  */
@@ -33,8 +23,6 @@ public class Hub {
 
     private Stage stage;
     private Skin skin;
-//    private Label label;
-//    private Label puntos;
     private ImageButton menu;
 
     private Table vidas;
@@ -43,19 +31,10 @@ public class Hub {
     /**
      * @param stage Escenario donde se colocaran los elementos de UI
      */
-
     public Hub(Stage stage) {
         this.stage = stage;
         vidaAux = objectDestroy;
         skin = new Skin(Gdx.files.internal("ui/normal.json"));
-
-//        label = new Label("Vidas: 0", skin);
-//        label.getStyle().fontColor.set(Color.WHITE);
-//        label.setPosition(15, stage.getHeight() - label.getHeight() * 1.5f);
-//
-//        puntos = new Label("Puntos: 0", skin);
-//        puntos.getStyle().fontColor.set(Color.WHITE);
-//        puntos.setPosition(stage.getWidth() / 2f - puntos.getWidth() / 2, stage.getHeight() - puntos.getHeight() * 1.5f);
 
         menu = new ImageButton(skin);
         menu.getStyle().up = new TextureRegionDrawable(new TextureRegion(new Texture("ui/menuGame.png")));
@@ -80,12 +59,13 @@ public class Hub {
 
         stage.addActor(vidasBg);
         stage.addActor(vidas);
-//        stage.addActor(puntos);
-//        stage.addActor(label);
         stage.addActor(menu);
         eventHandler();
     }
 
+    /**
+     * Eventos en espera de accionarse
+     */
     private void eventHandler() {
         menu.addListener(new ClickListener() {
             @Override
@@ -107,13 +87,10 @@ public class Hub {
             vidas.getCells().get(vidaAux-1).setActor(img);
             vidaAux = objectDestroy;
         }
-
-//        puntos.setText("Puntos: " + Player.Points);
-//        label.setText("Vidas: " + objectDestroy);
     }
 
     /**
-     * @return Estilos graficos de UI
+     * @return Estilos graficos predeterminados de UI
      */
     public Skin getSkin() {
         return skin;

@@ -1,12 +1,3 @@
-/**
- *  SEPARADOR 3000 1.0
- *  APLICACION PARA ESCRITORIO DE ENTRETENIMIENTO Y CONCIENTIZACION SOBRE EL RECICLAJE
- *  AUTORES: Gonzalez Zepeda Alejandro, Medina Carrillo Abraham, Rodriguez Estrada Jesus Emmanuel
- *  CORREO ELECTRONICO {alejandro.gonzalez96, abraham.medina.carrillo, emmanuel.rodriguez40 }@uabc.edu.mx
- *  UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
- *  http://uabc.mx
- */
-
 package com.mygame.pooa.actors.Player;
 
 import com.badlogic.gdx.Gdx;
@@ -15,7 +6,7 @@ import com.mygame.pooa.actors.Entity;
 
 /**
  * Manejador del personaje principal
- * @author Abraham Medina Carrillo
+ * @author <a href="https://github.com/medina1402" target="_blank">Abraham Medina Carrillo</a>
  * @author Jesus Emmanuel Rodriguez Estrada
  * @author Alejandro Gonzalez Zepeda
  */
@@ -35,6 +26,7 @@ public class Controller {
 
     /**
      * Actualizacion de los controles y la velocidad del personaje principal
+     * @see Player
      */
     public void render() {
         entity.getBody().setLinearVelocity(0, 0);

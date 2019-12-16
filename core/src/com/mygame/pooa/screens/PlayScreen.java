@@ -1,12 +1,3 @@
-/**
- *  SEPARADOR 3000 1.0
- *  APLICACION PARA ESCRITORIO DE ENTRETENIMIENTO Y CONCIENTIZACION SOBRE EL RECICLAJE
- *  AUTORES: Gonzalez Zepeda Alejandro, Medina Carrillo Abraham, Rodriguez Estrada Jesus Emmanuel
- *  CORREO ELECTRONICO {alejandro.gonzalez96, abraham.medina.carrillo, emmanuel.rodriguez40 }@uabc.edu.mx
- *  UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
- *  http://uabc.mx
- */
-
 package com.mygame.pooa.screens;
 
 import com.badlogic.gdx.Gdx;
@@ -31,7 +22,7 @@ import com.mygame.pooa.screens.other.Hub;
 
 /**
  * Contiene los objetos relacionados a la pantalla del juego, incluye el estado y ciclo de vida del mismo
- * @author Abraham Medina Carrillo
+ * @author <a href="https://github.com/medina1402" target="_blank">Abraham Medina Carrillo</a>
  * @author Jesus Emmanuel Rodriguez Estrada
  * @author Alejandro Gonzalez Zepeda
  * @see com.badlogic.gdx.Screen
@@ -99,7 +90,7 @@ public class PlayScreen extends GameScreen {
         gameMenu = new GameMenu(hub.getSkin(), game);
 
         player = new Player(world, new Vector2(Gdx.graphics.getWidth() / PPM, Gdx.graphics.getHeight() / PPM), new Vector2(4f, 4f));
-        banda = new Banda(world, new Vector2(-20, 0.1f), new Vector2(Gdx.graphics.getWidth() / PPM * 4, Gdx.graphics.getHeight()));
+        banda = new Banda(world, new Vector2(-20, 0.1f), new Vector2(Gdx.graphics.getWidth() / PPM * 4 + 60, Gdx.graphics.getHeight()));
         objetos = new Objetos(world);
 
         botes = new Bote[3];
@@ -111,6 +102,10 @@ public class PlayScreen extends GameScreen {
         stage.addActor(banda);
     }
 
+    /**
+     * Actualizacion de tiempo, aparicion de objetos nuevos y renderizado de las fisicas y movimiento de los mismos.
+     * @param delta intervalo de tiempo entre frame y frame
+     */
     private void update(float delta) {
         if(time>=timeSleep) {
             time = 0;
@@ -127,7 +122,10 @@ public class PlayScreen extends GameScreen {
         if(!firstSound.isPlaying()) firstSound.play();
         if(Hub.objectDestroy <= 0) PlayScreen.isPause = true;
     }
-//    Monitoreo
+
+    /**
+     * Funcion solo de monitoreo ** eliminar en produccion **
+     */
     private void eventHandler() {
         if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) isPause = !isPause;
         if(Gdx.input.isKeyJustPressed(Input.Keys.B)) b2dr.setDrawBodies(!b2dr.isDrawBodies());
@@ -149,7 +147,6 @@ public class PlayScreen extends GameScreen {
 
         objetos.render(game.getBatch(), player, botes);
         player.update(game.getBatch());
-//        player.movePlayer(hub.getPositionTouchPad().x, hub.getPositionTouchPad().y);
 
         stage.act();
         b2dr.render(world, camera.combined);
@@ -166,6 +163,9 @@ public class PlayScreen extends GameScreen {
         firstSound.setVolume(PlayScreen.soundVolume);
     }
 
+    /**
+     * @return Recursos a utilizar
+     */
     public static AssetsManager getAssetManager() {
         return game.assetsManager;
     }
@@ -175,8 +175,12 @@ public class PlayScreen extends GameScreen {
         firstSound.stop();
     }
 
+    /**
+     * Reseteo de valores predeterminados, velocidad de aparicion de objetos y puntaje del jugador
+     */
     public static void resetTimeSleep() {
         timeSleep = 5;
+        time = 0;
         Player.Points = 0;
     }
 
