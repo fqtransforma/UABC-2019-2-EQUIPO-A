@@ -3,7 +3,7 @@
 La dinámica del videojuego es muy sencilla, aparecerán elementos de manera aleatoria y el usuario deberá asignarlos a su categoría correspondiente, con ello obtendrá un puntaje que a su vez dependerá del material al que este asignado.
 
 La documentación técnica se encuentra en la carpeta <a href="./docs">docs</a> de este repositorio.
-Los recursos utilizados y la aplicación ejecutable (.jar), se puede encontrar en la carpeta <a href="./Aplicación-Recursos">Aplicación-Recursos</a>.
+Los recursos utilizados y la aplicación ejecutable (.jar), se puede encontrar en la carpeta <a href="./Aplicacion-Recursos">Aplicación-Recursos</a>.
 
 Cualquier duda o aclaración, favor de contactarnos vía correo electrónico:
 abraham.medina.carrillo@uabc.edu.mx
